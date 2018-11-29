@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class App {
 
   public static void main(String[] args) {
+
+    
     final int DEFAULT_SIZE = 20;
     //남들이 바꿀 수 없게 final
     int[] no = new int[DEFAULT_SIZE];
@@ -14,7 +16,7 @@ public class App {
     Date[] startDate = new Date[DEFAULT_SIZE];
     Date[] endDate = new Date[DEFAULT_SIZE];
     int[] totalHours = new int[DEFAULT_SIZE];
-    int[] dayHours = new int[DEFAULT_SIZE];
+
 
     int len = 0;
     Scanner scanner = new Scanner(System.in);    
@@ -39,8 +41,6 @@ public class App {
       System.out.print("총 강의 시간");
       totalHours[i] = Integer.parseInt(scanner.nextLine());
 
-      System.out.print("일 강의 시간");
-      dayHours[i] = Integer.parseInt(scanner.nextLine());
       
       len++;
       System.out.print("계속 입력하시겠습니까?(Y/n)");

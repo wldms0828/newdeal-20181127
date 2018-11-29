@@ -1,9 +1,6 @@
 plugins {
-<<<<<<< HEAD
-    id 'java'
-=======
+
     id 'java'    
->>>>>>> work
     id 'application'
     id 'eclipse'
 }

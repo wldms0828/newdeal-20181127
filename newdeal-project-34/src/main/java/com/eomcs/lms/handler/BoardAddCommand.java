@@ -1,30 +1,22 @@
 package com.eomcs.lms.handler;
+
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import com.eomcs.lms.domain.Board;
 
-public class BoardHandler {
+public class BoardAddCommand implements Command {
   
-  static final int LENGTH = 10;
-  
+  List<Board> list;
   Scanner keyboard;
-  BoardList blist;
-
-  public BoardHandler(Scanner keyboard) {
-    this.keyboard = keyboard;
-    this.blist = new BoardList();
+  
+  public BoardAddCommand(Scanner keyboard, ArrayList<Board> boards) {
+    list=list;
+    keyboard=keyboard;
   }
   
-  public void listBoard() {
-    Board[] boards = this.blist.toArray();
-    for (Board board : boards) {
-      System.out.printf("%3d, %-20s, %s, %d\n", 
-          board.getNo(), board.getContents(), 
-          board.getCreatedDate(), board.getViewCount());
-    }
-  }
-
-  public void addBoard() {
+  public void execute() {
     Board board = new Board();
     
     System.out.print("번호? ");
@@ -36,8 +28,13 @@ public class BoardHandler {
     board.setCreatedDate(new Date(System.currentTimeMillis())); 
     
     board.setViewCount(0);
-       
+    
+    list.add(board);
+    
     System.out.println("저장하였습니다.");
+    }
   }
 
-}
+
+
+

@@ -35,21 +35,19 @@ public class App {
   
   public static void main(String[] args) {
     HashMap<String, Command> commandMap = new HashMap<>();
-    ArrayList<Board> boards = new ArrayList<>();    
 
-    commandMap.put("/board/list", new BoardListCommand(keyboard, boards));
-    commandMap.put("/board/detail", new BoardDetailCommand(keyboard, boards));
-    commandMap.put("/board/add", new BoardAddCommand(keyboard, boards));
-    commandMap.put("/board/update", new BoardUpdateCommand(keyboard, boards));
-    commandMap.put("/board/delete", new BoardDeleteCommand(keyboard, boards));
+    commandMap.put("/board/list", new BoardListCommand(keyboard));
+    commandMap.put("/board/detail", new BoardDetailCommand(keyboard));
+    commandMap.put("/board/add", new BoardAddCommand(keyboard));
+    commandMap.put("/board/update", new BoardUpdateCommand(keyboard));
+    commandMap.put("/board/delete", new BoardDeleteCommand(keyboard));
     commandMap.put("hello", new HelloCommand(keyboard));
     
-    ArrayList<Lesson> lessons=new ArrayList<>(); 
-    commandMap.put("/lesson/add", new LessonAddCommand(keyboard, lessons));
-    commandMap.put("/lesson/detail", new LessonDetailCommand(keyboard, lessons));
-    commandMap.put("/lesson/delete", new LessonDeleteCommand(keyboard, lessons));
-    commandMap.put("/lesson/list", new LessonListCommand(keyboard, lessons));
-    commandMap.put("/lesson/update", new LessonUpdateCommand(keyboard, lessons));
+    commandMap.put("/lesson/add", new LessonAddCommand(keyboard));
+    commandMap.put("/lesson/detail", new LessonDetailCommand(keyboard));
+    commandMap.put("/lesson/delete", new LessonDeleteCommand(keyboard));
+    commandMap.put("/lesson/list", new LessonListCommand(keyboard));
+    commandMap.put("/lesson/update", new LessonUpdateCommand(keyboard));
     
     ArrayList<Member> members=new ArrayList<>();
     commandMap.put("member/add", new MemberAddCommand(keyboard, members));
@@ -59,6 +57,7 @@ public class App {
     commandMap.put("member/update", new MemberUpdateCommand(keyboard, members));
     while (true) {
       String command = prompt();
+
       // 사용자가 입력한 명령을 스택에 보관한다.
       commandHistory.push(command);
       
@@ -67,7 +66,7 @@ public class App {
       
       Command commandHandler = commandMap.get(command);
       if(commandHandler != null) {
-        try {        commandHandler.execute();}
+        try { commandHandler.execute();}
         catch (Exception e) {
           System.out.println("명령어 처리중 오류 발생");
         }

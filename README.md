@@ -44,3 +44,19 @@
 
 ## 34 : 자바 컬렉션 API 사용, Command 디자인 패턴, 예외처리
 -https://github.com/eomcs/eomcs-java-project/tree/master/eomcs-java-project-v3.4, v3.5 과제 해결
+
+## 45 : DBMS와 JDBC 프로그래밍
+-https://github.com/eomcs/eomcs-java-project/tree/master/eomcs-java-project-v4.5 과제 해결
+
+## 46 : DAO도입
+
+## 47 : DAO에 인터페이스 적용
+- 다양한 DBMS에 대응하여 DAO를 교체할 수 있도록 하라!
+
+## 48 : SQL 삽입 공격과 자바 보안
+-SQL 삽입 공격을 이해하고 그 공격을 막아라!
+-Statement의 createStatement() 대신 PreparedStatement를 사용
+
+## 49 : Mybatis도입
+- 자바 소스에서 SQL코드를 분리하라!
+- JDBC 코드를 캡슐화한 Mybatis로 대체하라!

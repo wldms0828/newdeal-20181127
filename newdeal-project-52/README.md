@@ -19,6 +19,11 @@
 - index.html
     - 웹 어플리케이션에대해 설명하는 간단한 페이지를 만든다.
     - $ gradle eclipse 실행하여 이클립스 설정 파일을 갱신
+        - 'src/main/webap' 폴더가 웹 프로젝트에 정식으로 등록된다.
+
+##이클립스에 톰캣 서버 등록
+- 환결설정 
+    - 
 
 ### SqlSessionFactory 객체 생성
 -apache common-dbcp 라이브러리 추가

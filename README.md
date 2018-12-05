@@ -60,3 +60,12 @@
 ## 49 : Mybatis도입
 - 자바 소스에서 SQL코드를 분리하라!
 - JDBC 코드를 캡슐화한 Mybatis로 대체하라!
+
+## 50 : Spring IoC(Inversion of Control) Container 도입
+- 객체 생성과 소멸을 Spring IoC container 에게 맡겨라.
+
+## 51 : Spring IoC(Inversion of Control) Container 와 Mybatis 연동하기
+- Mybatis가 하던 Database와 트랜잭션 관리 업무를 Spring IoC 컨테이너에게 넘겨라.
+
+## 52 : 자바 프로젝트를 웹 프로젝트로 전환하기
+- 이클립스의 톰캣 실행 환경에서 테스트 할 수 있도록 프로젝트의 환경을 변경 하라.

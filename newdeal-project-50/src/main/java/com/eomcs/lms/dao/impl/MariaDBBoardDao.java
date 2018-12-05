@@ -4,14 +4,17 @@ import java.sql.DriverManager;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Component;
 import com.eomcs.lms.dao.BoardDao;
 import com.eomcs.lms.domain.Board;
 
+//Spring Ioc컨테이너가 이 클래스의 객체를 생성하도록 클래스에 표시해 둔다.
+@Component
 public class MariaDBBoardDao implements BoardDao {
   //프로그램의 유연성을 위해서 그냥 Interface로 설정해준다(List)
-  //수업을 들으려면 교육센터가 있어야 하는거 처럼 SqlSessionFactory가 있어야 MariaDBBoardDao를 사용할 수 있다. 
-  SqlSessionFactory sqlSessionFactory;
   
+  SqlSessionFactory sqlSessionFactory;
+
 public MariaDBBoardDao(SqlSessionFactory sqlSessionFactory) {
     this.sqlSessionFactory=sqlSessionFactory;
   }

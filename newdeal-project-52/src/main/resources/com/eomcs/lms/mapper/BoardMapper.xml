@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardDao">
+<resultMap type="board" id="boardMap">
+  <result column="bno" property="no"/>
+  <result column="cont" property="contents"/>
+  <result column="cdt" property="createdDate"/>
+  <result column="view" property="viewCount"/>
+  <result column="mno" property="writerNo"/>
+  <result column="lno" property="lessonNo"/>
+</resultMap>
+
+  <select id="findAll" resultMap="boardMap">
+    select 
+      bno ,
+      cont ,
+      cdt , 
+      view 
+    from board
+  </select>
+  
+  <select id="findByNo" resultType="board" parameterType="int">
+	  select 
+	    bno ,
+	    cont , 
+	    cdt , 
+	    view , 
+	    mno , 
+	    lno 
+	  from board
+	  where bno=#{value}
+  <!-- byte,short,int,long,boolean,char,double 과 같은7가지에는 #{value} 내부의 값을 아무거나 줘도 된다.
+       하지만 parameterType이 객체일 경우에는 예를 들어 Board 일 경우에 parameterType="Board" 라고 적어 줘야 한다.-->
+  </select>  
+  <!-- insert,delete,update는 무조건 result 타입 int -->
+  <insert id="insert" parameterType="board">
+    insert into board(cont,mno,lno)
+    values(#{contents},#{writerNo},#{lessonNo})
+  </insert>
+  <update id="update" parameterType="board">
+    update board set
+      cont=#{contents} 
+    where bno=#{no}
+   <!-- $ 쓰지마라! -->
+  </update>
+  <delete id="delete" parameterType="int">
+   delete from board 
+   where bno=#{value}
+  </delete>
+</mapper>
